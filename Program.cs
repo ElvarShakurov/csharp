@@ -4167,38 +4167,38 @@
 // идём сначала в client.cs и сменили там url
 // далее создали новый файл и класс todo.cs
 
-using System;
-using System.Threading;
-using System.Threading.Tasks; 
-// подключаем установленное пространство имён:
-using Newtonsoft.Json; //теперь у нас есть доступ к классам, которые работают с json
-namespace project;
+// using System;
+// using System.Threading;
+// using System.Threading.Tasks; 
+// // подключаем установленное пространство имён:
+// using Newtonsoft.Json; //теперь у нас есть доступ к классам, которые работают с json
+// namespace project;
 
 
 
-class Program 
-{
-        public static async Task Main() 
-        {
-        try{
-        System.Console.WriteLine("Основной метод");
-        string result = await Client.GetData(); 
-        //используем теперь доступный (теперь) новый класс:
-        Todo todo = JsonConvert.DeserializeObject<Todo>(result) ?? throw new Exception("No data"); //обр к jsonConvert далее обр к статич методу DeserializeObject
-        // поскольку DeserializeObject является обобщ методом, то мы должны передать класс, который будет описывать каждый объект
-        // внутри полученного json, соотв внутри <> указываем, что каждый эл внутри json будет описываться с помощью кл Todo,
-        // соотв на основе этого класса будут созд объекты
-        // далее пишем () - т.к. это ведь метод, туда передаём result
-        // упаковываем это всё в объект (Todo todo =)
-        // ?? throw new Exception("No data") - это добавили на случай если ответ будет нулевой и вывежем сообщ no data
-        // добавляем еще и try catch , чтобы отслеж ошибки
-        // System.Console.WriteLine(result); //это закомментили и изменили:
-        System.Console.WriteLine($"ID: {todo.id}. User id: {todo.userId}. Title: {todo.title} Completed: {todo.completed}");
-        } catch (Exception ex){
-                System.Console.WriteLine(ex.Message); // ну а если будет ошибка, то выводим сообщение ошибки
-        }
-        }
-}
+// class Program 
+// {
+//         public static async Task Main() 
+//         {
+//         try{
+//         System.Console.WriteLine("Основной метод");
+//         string result = await Client.GetData(); 
+//         //используем теперь доступный (теперь) новый класс:
+//         Todo todo = JsonConvert.DeserializeObject<Todo>(result) ?? throw new Exception("No data"); //обр к jsonConvert далее обр к статич методу DeserializeObject
+//         // поскольку DeserializeObject является обобщ методом, то мы должны передать класс, который будет описывать каждый объект
+//         // внутри полученного json, соотв внутри <> указываем, что каждый эл внутри json будет описываться с помощью кл Todo,
+//         // соотв на основе этого класса будут созд объекты
+//         // далее пишем () - т.к. это ведь метод, туда передаём result
+//         // упаковываем это всё в объект (Todo todo =)
+//         // ?? throw new Exception("No data") - это добавили на случай если ответ будет нулевой и вывежем сообщ no data
+//         // добавляем еще и try catch , чтобы отслеж ошибки
+//         // System.Console.WriteLine(result); //это закомментили и изменили:
+//         System.Console.WriteLine($"ID: {todo.id}. User id: {todo.userId}. Title: {todo.title} Completed: {todo.completed}");
+//         } catch (Exception ex){
+//                 System.Console.WriteLine(ex.Message); // ну а если будет ошибка, то выводим сообщение ошибки
+//         }
+//         }
+// }
 
 
 
@@ -4243,3 +4243,40 @@ class Program
 // либо указать git add bin/program.* - добавл все файлы из папки bin с назв program не важно с каким расшир
 
 // решили что добавим все файлы с расшир .cs , пишем git add *.cs
+// *важно* git add не добавляет файлы в репозиторий, а как бы только подготавливает их, указывая что из необх добавить
+
+// чтобы проверить какие файлы готовы к добавл в локаль репозиторий пишем: git status
+// команда показывает какие файлы и папки готовы на коммит (commit)
+// commit - это когда мы уже выгружаем готовы файлы и папки в локальн репозиторий
+
+// далее пишем git add bin/ 
+
+// чтобы удалить из списка готовых файлов пишем git rm --cached Program.cs (эт для примера)
+// важно обр вним, что папки (bin напр) удалить не получится
+// т.е. при rm (remove) нужно указ полный путь к файлу
+
+// чтобы удалить все файлы из status (ну спис файлов готовых к коммиту) пишем: git rm -r --cached . (точку не забудьте в конце)
+
+// далее в итоге добавляем файлы git add *.cs
+
+// далее идём к процессу добавл файлов в локальн репозиторий, обращаемся к процессу коммита:
+// пишем git commit -m "First version"
+// после commit пишем сообщение (комментарий) пишем -m "" (внутри ковычек и будет ккомент)
+// нужно это чтобы потом можно было просмотреть историю комментов при коммите 
+// т.е. в будущем когда мы это дело выгрузим в удалённый репозиторий, то там будут отображаться все вот эти комментарии 
+// далее мы быстро по этим комментам будем понимать в какой момент какие были внесены изменения или 
+// сможем просматривать разные версии нашего проекта , это будет полезно и для нас и для других программистов, кот будут работать над этим проек
+
+using System;
+namespace project;
+
+
+
+class Program 
+{
+        public static void Main() 
+        {
+                System.Console.WriteLine("Hello");
+        }
+
+}
