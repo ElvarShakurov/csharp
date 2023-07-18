@@ -4378,5 +4378,27 @@
 // на маке надо найти связку ключей далее найти github с типом пароль интернета (или создать)
 // далее указать имя например github.com далее указать пароль это токен сгенерированный
 // НА ВИНДЕ находим windows credentials или диспетчер учетных данных далее учетные данные для интернета (ТАКОГО НЕ НАШЁЛ!)
+// название нужно писать git:https://github.com , логин из логина github пароль указываем сгенерированный токен
+// для линукса: 
+// For Linux, you need to configure the local GIT client with a username and email address,
+// $ git config --global user.name "your_github_username"
+// $ git config --global user.email "your_github_email"
+// $ git config -l
+// далее 
+// Once GIT is configured, we can begin using it to access GitHub. Example:
+// $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY (тут указываем наш url)
+// > Cloning into `YOUR-REPOSITORY`...
+// Username: <type your username> (тут логин шита)
+// Password: <type your password or personal access token (GitHub) (ну а тут сегенированный токен)
 
-// ++++
+// если нам нужна доп ветка в удал репоз, то её также грузим
+
+// далее рекомендовано моздать файл README.md // создаём его 
+// md - марк даун - спец формат файла текст в котором затем трансФОРМИРУЕТСЯ в различн заголовки, списки и т.д.(можно загуглить)
+// # - заголовок 1-го уровн
+// ## - заголовок 2-го уровня и т.д.
+// обыцчный текст - текст
+//  - текст -отобр как список
+// _GitHub_ - курсив когда _ и _
+
+// далее все это закоммитили и запушили в удалённый репозиторий  git push -u origin master   origin - назв удал репоз
