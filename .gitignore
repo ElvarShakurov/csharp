@@ -3,6 +3,5 @@ some.txt
 index.txt
 .git/
 bin/
-obj/Debug/
 Test/
 obj/
